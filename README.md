@@ -34,63 +34,51 @@ Use model to make predictions on new data in real-world application.
 ```
 /*
 Program to implement the Decision Tree Regressor Model for Predicting the Salary of the Employee.
-Developed by: LATHIKESHWARAN J
-RegisterNumber:  212222230072
+Developed by: Lathikeshwaran J
+RegisterNumber: 212222230072
 */
+```
+```
 import pandas as pd
-data=pd.read_csv("Salary.csv")
+data=pd.read_csv("/content/Salary.csv")
 data.head()
-
 data.info()
-
 data.isnull().sum()
-
 from sklearn.preprocessing import LabelEncoder
 le=LabelEncoder()
-
 data["Position"]=le.fit_transform(data["Position"])
 data.head()
-
 x=data[["Position","Level"]]
-x.head()
-
-y=data[["Salary"]]
-
+y=data["Salary"]
 from sklearn.model_selection import train_test_split
-x_train, x_test, y_train, y_test=train_test_split(x,y,test_size=0.2,random_state=2)
-
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=2)
 from sklearn.tree import DecisionTreeRegressor
 dt=DecisionTreeRegressor()
 dt.fit(x_train,y_train)
 y_pred=dt.predict(x_test)
-
 from sklearn import metrics
-mse=metrics.mean_squared_error(y_test, y_pred)
+mse=metrics.mean_squared_error(y_test,y_pred)
 mse
-
 r2=metrics.r2_score(y_test,y_pred)
 r2
-
 dt.predict([[5,6]])
 ```
-
 ## Output:
-### Initial dataset:
-![O1](https://github.com/LATHIKESHWARAN/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/119393556/764ddfe2-dede-4e3e-ba55-15f2b4354e05)
-### Data Info:
-![O2](https://github.com/LATHIKESHWARAN/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/119393556/f3fbe7ba-f0c2-4eb1-8ff1-941a57dcb5ec)
-### Optimization of null values:
-![O3](https://github.com/LATHIKESHWARAN/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/119393556/7bdb6adb-95ec-41e9-8230-a794023c7670)
-### Converting string literals to numericl values using label encoder:
-![O4](https://github.com/LATHIKESHWARAN/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/119393556/d39011ae-e3e6-4bc4-bd15-a832eb8b7e21)
-### Assigning x and y values:
-![O5](https://github.com/LATHIKESHWARAN/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/119393556/5b458c10-e726-4cdc-8c60-fc69b7a3c314)
-### Mean Squared Error:
-![O6](https://github.com/LATHIKESHWARAN/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/119393556/3dee0095-d3a1-4f6e-a74e-b6f3983ec5e3)
-### R2 (variance):
-![O7](https://github.com/LATHIKESHWARAN/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/119393556/924accc7-ece9-491e-9a8c-f980aae9da81)
-### Prediction:
-![O8](https://github.com/LATHIKESHWARAN/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/119393556/d4d9f997-f736-42c0-963b-acd94b10d596)
+## data.head()
+![Screenshot 2024-04-02 134650](https://github.com/rajalakshmi8248/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/122860827/497a662d-0254-4501-9da1-f83acb83b672)
+## data.info()
+![Screenshot 2024-04-02 134714](https://github.com/rajalakshmi8248/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/122860827/88157a23-fdfa-446d-85a4-75da500b79c2)
+## data.isnull().sum()
+![Screenshot 2024-04-02 134719](https://github.com/rajalakshmi8248/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/122860827/11401fc5-4fa3-488c-a591-c181f44aeb94)
+## data.head() for salary
+![Screenshot 2024-04-02 134727](https://github.com/rajalakshmi8248/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/122860827/2124bb42-2cd5-4907-b6b2-0f2dd2fd16b9)
+## MSE value
+![Screenshot 2024-04-02 134744](https://github.com/rajalakshmi8248/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/122860827/b875ed87-ded1-4f25-8a1a-2cd3b6029904)
+## r2 value
+![Screenshot 2024-04-02 134749](https://github.com/rajalakshmi8248/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/122860827/a5cb3052-4f18-463a-a020-ea6e175b017f)
+## data prediction
+![Screenshot 2024-04-02 134819](https://github.com/rajalakshmi8248/Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee/assets/122860827/b2e3c327-fa8d-4fca-8f67-7be8d6bfb59b)
+
 
 
 
